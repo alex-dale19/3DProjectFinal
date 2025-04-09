@@ -62,6 +62,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -159,7 +161,7 @@ MonoBehaviour:
   crosshair: 1
   crosshairImage: {fileID: 21300000, guid: be4ce60e2c9768c44b9b10b9c5258045, type: 3}
   crosshairColor: {r: 1, g: 1, b: 1, a: 1}
-  enableZoom: 1
+  enableZoom: 0
   holdToZoom: 1
   zoomKey: 324
   zoomFOV: 30

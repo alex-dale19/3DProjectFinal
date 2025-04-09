@@ -19,7 +19,6 @@ public class FirstPersonController : MonoBehaviour
     private Rigidbody rb;
 
     #region Camera Movement Variables
-
     public Camera playerCamera;
 
     public float fov = 60f;
@@ -41,7 +40,7 @@ public class FirstPersonController : MonoBehaviour
 
     #region Camera Zoom Variables
 
-    public bool enableZoom = true;
+    public bool enableZoom = false;
     public bool holdToZoom = false;
     public KeyCode zoomKey = KeyCode.Mouse1;
     public float zoomFOV = 30f;
@@ -117,7 +116,6 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
     #endregion
-
     #region Head Bob
 
     public bool enableHeadBob = true;
@@ -524,6 +522,14 @@ public class FirstPersonController : MonoBehaviour
             // Resets when play stops moving
             timer = 0;
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "spyglass")
+        {
+            enableZoom = true;
+            Destroy(other.gameObject);
         }
     }
 }
